@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    #LISTS
+\*------------------------------------*/
+.c-list {
+
+	//Inline list with pipe separators
+	&--style-1 {
+
+		&__item {
+			@extend .u-i-b;
+			@extend .u-position--r;
+
+			&:first-of-type {
+			}
+
+			&:not(:last-of-type) {
+
+				&:after {
+					@extend .u-padding-s-xs;
+					@extend .u-font-bold;
+			  		content: "•";
+					color: $color-primary;
+					display: inline-block;
+				}
+			}
+		}
+	}
+}

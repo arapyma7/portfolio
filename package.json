@@ -1,0 +1,21 @@
+{
+  "name": "gulp-sass-recipe",
+  "version": "1.0.0",
+  "description": "Basic gulpfile for using gulp-sass",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp sass"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-sourcemaps": "^2.6.4"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-sass": "^3.1.0"
+  }
+}

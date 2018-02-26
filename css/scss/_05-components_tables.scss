@@ -1,0 +1,102 @@
+/*------------------------------------*\
+    #TABLES
+\*------------------------------------*/
+
+%table-cell-setup {
+	@extend .u-spacing--right;
+	@extend .u-padding-top-md;
+	@extend .u-padding-bottom-md;
+}
+
+.c-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+
+	&--fixed {
+		table-layout: fixed;
+
+		.c-table__thead__row__cell, .c-table__tbody__row__cell, .c-table__tfoot__row__cell {
+			word-wrap: break-word;
+		}
+	}
+
+	@media screen and (max-width: $bp-large-2) {
+		font-size: $font-size-sm;
+	}
+
+	&__caption {
+
+	}
+
+	&__thead__row__cell, &__tbody__row__cell, &__tfoot__row__cell {
+
+		&--wrap {
+			word-wrap: break-word;
+		}
+
+		&:first-child {
+			@extend .u-spacing--left;
+		}
+	}
+
+	&__thead {
+
+		&__row {
+
+			&__cell {
+				@extend %table-cell-setup;
+				transition: color 150ms ease-out;
+
+				&:hover {
+					cursor: pointer;
+					color: $color-gray;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	&__tbody {
+
+		&__row {
+
+			&__cell {
+				transition: background-color 150ms ease-out;
+				@extend %table-cell-setup;
+
+				&--action {
+					position: relative;
+				}
+			}
+
+			&:hover {
+				//box-shadow:inset -4px 0 0 $color-yellow;
+				.c-table__tbody__row__cell {
+					background-color: $color-highlight;
+				}
+			}
+
+			&--clickable {
+				transition: box-shadow 150ms ease-out, background-color 150ms ease-out;
+
+				&:hover {
+					box-shadow: inset $base-spacing 0 0 $color-yellow;
+					background-color: $color-gray-02;
+					cursor: pointer;
+
+					.c-table__tbody__row__cell {
+					}
+				}
+			}
+		}
+	}
+
+	&__tfoot {
+
+		&__row {
+
+			&__cell {
+			}
+		}
+	}
+}

@@ -1,0 +1,70 @@
+/*------------------------------------*\
+    #HERO
+\*------------------------------------*/
+.c-hero {
+	position: relative;
+
+	&__title {
+		color: $color-primary;
+		font-size: $font-size-lg;
+		line-height: .9;
+
+		@include MQ(M){
+			font-size: $font-size-xl;
+		}
+	}
+
+	&__desc {
+		position: relative;
+		z-index: 1;
+
+		&__p {
+			//column-count: 2;
+			//column-gap: 40px;
+			text-shadow: -2px 0 0 #fff;
+			box-shadow: 0 0 45px rgba(255,255,255,1);
+			background: rgba(255,255,255,.5);
+		}
+	}
+
+	&__img {
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		right: 0;
+		max-width: 33%;
+	}
+
+	@include MQ(L){
+
+		&__desc {
+			padding-right: 33%;
+		}
+
+		&__img {
+			max-width: 40%;
+		}
+	}
+
+	&--style-2 {
+
+		&__title {
+			font-size: $font-size-lg;
+
+			@include MQ(S){
+				font-size: $font-size-xl;
+			}
+		}
+
+		@include MQ(S){
+
+			.c-hero__desc {
+				padding-right: 40%;
+			}
+
+			.c-hero__img {
+				max-width: 40%;
+			}
+		}
+	}
+}

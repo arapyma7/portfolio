@@ -1,0 +1,92 @@
+/*------------------------------------*\
+    #TEXT BLOCK
+\*------------------------------------*/
+.c-text-block {
+
+	[class*="c-text-block__item"] {
+		display: block;
+	}
+
+	&__item {
+
+		&--primary {
+			font-weight: $font-semi-bold;
+		}
+	}
+
+	&--success, &--info, &--neutral, &--info-light, &--danger, &--danger-light, &--danger-lined {
+		padding-left: $base-spacing;
+		display: block;
+
+		@include MQ(L){
+			padding-left: $base-spacing * 2;
+		}
+	}
+
+	&--success {
+		border-left: $color-success $base-spacing / 2 solid;
+	}
+
+	&--info {
+		border-left: $color-info $base-spacing / 2 solid;
+	}
+
+	&--neutral {
+		border-left: $color-blue-dark $base-spacing / 2 solid;
+	}
+
+	&--info-light {
+		border-left: $color-info-light $base-spacing / 2 solid;
+	}
+
+	&--danger {
+		border-left: $color-danger $base-spacing / 2 solid;
+	}
+
+	&--danger-light {
+		border-left: $color-danger-light $base-spacing / 2 solid;
+	}
+
+	&--danger-lined {
+		position: relative;
+		border-left: transparent $base-spacing / 2 solid;
+
+		&:before {
+			width: 4px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			content: '';
+  			opacity: 0.5;
+			background: url("../images/bg-neg--lined.gif");
+		}
+	}
+}
+
+a {
+
+	.c-text-block__item {
+
+		&--primary {
+			transition: color $transition-speed ease-out;
+			color: $color-gray;
+		}
+
+	}
+
+	&:hover {
+
+		[class*="c-text-block__item"] {
+			text-decoration: none;
+		}
+
+		.c-text-block__item {
+
+			&--primary {
+				color: $color-blue;
+				//text-decoration: underline;
+			}
+		}
+	}
+}

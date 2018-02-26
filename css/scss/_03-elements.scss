@@ -1,0 +1,247 @@
+// ELEMENTS: Unclassed HTML elements (Type selectors)
+
+/*------------------------------------*\
+    #BODY
+\*------------------------------------*/
+body {
+	color: $color-gray;
+	font: 100%/1.3 $font;
+	font-size: 16px;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	text-size-adjust: 100%;
+	//min-height: 100vh;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Helvetica Neue', arial, sans-serif;
+}
+html{
+	font-size: 50px;
+	overflow-y: scroll;
+}
+main {
+	background: $color-white;
+}
+/**
+ * Zero out margin and padding on most elements as base style
+ */
+html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, ol, ul, li, form, legend, label, table, header, footer, nav, section, figure {
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Display block as base for these elements
+ */
+header, footer, nav, section, article, hgroup, figure {
+	display: block;
+}
+
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+button {
+}
+/*------------------------------------*\
+    #FONT SIZES
+\*------------------------------------*/
+:root{
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding-bottom: $spacing-md;
+}
+
+/**
+ * Heading 1
+ */
+h1  {
+	line-height: 1.3;
+}
+
+/**
+ * Heading 2
+ */
+h2 {
+	//font-size: $font-size-md-2;
+	line-height: 1.2;
+}
+
+/**
+ * Heading 3
+ */
+h3  {
+	//font-size: $font-size-md;
+	line-height: 1.4;
+}
+
+/**
+ * Heading 4
+ */
+h4  {
+	//font-size: $font-size-sm-2;
+	line-height: 1.3;
+	padding-bottom: $spacing-sm;
+}
+
+/**
+ * Heading 5
+ */
+h5 {
+	//font-size: $font-size-sm;
+	line-height: $base-line-height;
+	padding-bottom: $spacing-sm;
+}
+
+/**
+ * Heading 6
+ */
+h6 {
+	//font-size: $font-size-xs;
+	line-height: 1.4;
+	padding-bottom: $spacing-sm;
+}
+
+p {
+	font-size: $font-size-sm-2;
+	& + p {
+		@extend .u-spacing--top;
+	}
+	a {
+		font-weight: $font-bold;
+		text-decoration: underline;
+
+		&::hover {
+			text-decoration: none;
+		}
+	}
+}
+
+/*------------------------------------*\
+    #LISTS
+\*------------------------------------*/
+
+/**
+ * Ordered/Unordered list base styles
+ */
+ol, ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+
+/**
+* Nested Unordered List
+*/
+
+/**
+ * Definition list base styles
+ */
+dl {
+	overflow: hidden;
+	margin: 0 0 $spacing-md;
+}
+
+/**å
+ * Terms/Names base styles
+ */
+dt {
+	font-weight: bold;
+}
+
+/**
+ * Definition list description base styles
+ */
+dd {
+	margin-left: 0;
+}
+
+/*------------------------------------*\
+    #ANCHOR ELEMENTS
+\*------------------------------------*/
+a {
+	//color: $color-brand-blue;
+	text-decoration: none;
+	font-weight: 500;
+	//font-family: $font;
+    &:hover, &:focus{
+		//color: $color-link-hover;
+		//text-decoration: underline;
+  }
+}
+
+
+/*------------------------------------*\
+    #MEDIA ELEMENTS
+\*------------------------------------*/
+/**
+ * Make media elements responsive
+ */
+img, video, object {
+	max-width: 100%;
+	height: auto;
+}
+
+/**
+ * Iframe base styles
+ */
+iframe {
+	margin-bottom: $spacing-md;
+	border: none;
+}
+
+/**
+ * Figure base styles
+ */
+figure {
+	margin-bottom: $spacing-md;
+
+	/**
+	 * Figure image base styles
+	 */
+	img {
+		margin-bottom: $spacing-md;
+	}
+}
+
+/**
+ * Figure caption base styles
+ */
+figcaption {
+	font-style: italic;
+}
+/**
+ * Ensure IE 10+ scales SVG based on container width
+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  img[src$=".svg"] {
+    width: 100%;
+  }
+}
+
+/**
+ * Figure base styles
+ */
+ input, select {
+ 	appearance: none;
+ }
+
+
+/*------------------------------------*\
+    #FORMS
+\*------------------------------------*/
+ ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $color-gray-50;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $color-gray-50;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $color-gray-50;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $color-gray-50;
+}

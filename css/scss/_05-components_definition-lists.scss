@@ -1,0 +1,83 @@
+/*------------------------------------*\
+    #LISTS
+\*------------------------------------*/
+.c-dl {
+
+	margin-bottom: 0;
+
+	&--inline {
+		margin-bottom: 0;
+
+		.c-dl__dd [class*="c-anchor"] + .c-dl__dd [class*="c-anchor"] {
+
+			&:before {
+				content: ', ';
+			}
+		}
+	}
+
+	&__dt {
+		@extend .u-padding-bottom-xs;
+	}
+}
+
+.c-dl--inline {
+
+	.c-dl__dd, .c-dl__dt, .c-dl__dd a {
+		display: block;
+	}
+
+	.c-dl__dt {
+		@extend .u-padding-right-xs;
+		padding-bottom: 0;
+	}
+
+	.c-dl__dd {
+		padding-top: $spacing-xs;
+
+		.c-anchor {
+			white-space: nowrap;
+		}
+	}
+
+	@include MQ(S){
+
+		.c-dl__dd, .c-dl__dt, .c-dl__dd a {
+			display: inline-block;
+		}
+
+		.c-dl__dt {
+			padding-bottom: 0;
+			width: $base-spacing * 20;
+		}
+
+		.c-dl__dd {
+			padding-top: 0;
+		}
+
+		.c-dl__dd [class*="c-anchor"] {
+
+			&:after {
+				color: $color-gray-30;
+				padding-right: $spacing-xs;
+				padding-left: $spacing-xs;
+				content: '•';
+				display: inline-block;
+			}
+
+			&:hover {
+
+				&:before {
+					text-decoration: none;
+				}
+			}
+
+			&:last-of-type {
+
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+}

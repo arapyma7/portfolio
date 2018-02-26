@@ -1,0 +1,89 @@
+/*------------------------------------*\
+    #MODALS
+\*------------------------------------*/
+@keyframes modalHide {
+    0% {
+		z-index: 3;
+    }
+    100% {
+		z-index:-1
+    }
+}
+
+.c-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    animation-name: modalHide;
+	animation-duration: $transition-speed;
+	animation-timing-function: ease-out;
+	animation-delay: 0;
+
+    pointer-events: none;
+    opacity: 0;
+
+    will-change: transform, opacity;
+    overflow: hidden;
+
+    outline: 0;
+    background-color: $color-black-75;
+    padding-top: $base-spacing * 5;
+
+    transform: scale(1.15);
+    transition:
+        transform $transition-speed cubic-bezier(0.465, 0.183, 0.153, 0.946),
+        opacity $transition-speed cubic-bezier(0.465, 0.183, 0.153, 0.946);
+
+    &--visible {
+        pointer-events: auto;
+        opacity: 1;
+        z-index: 3;
+
+        transform: scale(1);
+
+        transition:
+            transform $transition-speed cubic-bezier(0.465, 0.183, 0.153, 0.946),
+            opacity $transition-speed cubic-bezier(0.465, 0.183, 0.153, 0.946);
+    }
+
+    &__inner {
+        @extend .u-border-radius;
+
+        position: relative;
+        max-width: $modal-width;
+        box-shadow: 0 $base-spacing / 4 $base-spacing * 4 $color-black-50;
+        margin: 0 auto;
+        background-color: #fff;
+        border-top: $base-spacing $color-primary solid;
+
+        &__header {
+
+            &__close {
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: scale(.8);
+                transition: transform 150ms ease-out;
+
+                will-change: transform;
+
+                &:hover {
+                    transform: scale(1);
+                }
+
+                &:active {
+                    transform: scale(.7);
+                }
+            }
+        }
+    }
+
+    &.js-animate-out {
+        transform: scale(1.15);
+        opacity: 0;
+    }
+}

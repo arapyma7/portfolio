@@ -1,0 +1,81 @@
+/*------------------------------------*\
+    #LOADER
+\*------------------------------------*/
+@keyframes loader {
+    0% {
+		opacity: 0.5;
+	    transform: scale(.8);
+    }
+	50% {
+		transform: scale(1);
+		opacity: 1;
+	}
+    100% {
+		opacity: 0.5;
+	    transform: scale(.8);
+    }
+}
+
+@keyframes opacityIn {
+    0% {
+		opacity: 0;
+    }
+    100% {
+		opacity: .75;
+    }
+}
+
+.c-loader {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 100000;
+	top: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	background-color: #fff;
+
+	&__inner {
+		@include absolute-centering;
+
+		animation-name: opacityIn;
+		animation-duration: $transition-speed;
+		animation-timing-function: ease-out;
+		animation-fill-mode: forwards;
+	}
+
+	svg {
+		width: 175px;
+    	height: 63.38px;
+		opacity: .5;
+	}
+
+	&__dots {
+
+		&__dot {
+			display: inline-block;
+			background-color: $color-primary;
+			width: $base-spacing;
+			height: $base-spacing;
+			border-radius: 100%;
+
+			animation-name: loader;
+			animation-duration: $transition-speed-2x * 3;
+			animation-iteration-count: infinite;
+			animation-timing-function: ease-out;
+
+			&:not(:last-of-type) {
+				margin-right: $base-spacing;
+			}
+
+			&:first-of-type + & {
+				animation-delay: $transition-speed;
+			}
+
+			&:first-of-type + & + & {
+				animation-delay: $transition-speed-2x;
+			}
+		}
+	}
+}

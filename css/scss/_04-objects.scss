@@ -1,0 +1,735 @@
+// OBJECTS: Cosmetic-free design patterns
+/*------------------------------------*\
+	#DISPLAY TABLE
+\*------------------------------------*/
+.o-display-table {
+	display: table;
+	width: 100%;
+
+	&--auto {
+		width: auto;
+	}
+
+	&__cell {
+		display: table-cell;
+
+		&--xxs {
+			display: table-cell;
+			width: $base-spacing * 4;
+			max-width: $base-spacing * 4;
+		}
+
+		&--xs {
+			display: table-cell;
+			width: $base-spacing * 6;
+			max-width: $base-spacing * 6;
+		}
+
+		&--sm {
+			display: table-cell;
+			width: $base-spacing * 6;
+			max-width: $base-spacing * 6;
+
+			@include MQ(S){
+				width: $base-spacing * 8;
+				max-width: $base-spacing * 8;
+			}
+
+			@include MQ(M){
+				width: $base-spacing * 12;
+				max-width: $base-spacing * 12;
+			}
+		}
+
+		&--md {
+			display: table-cell;
+			width: $base-spacing * 12;
+			max-width: $base-spacing * 12;
+		}
+
+		&--md-2 {
+			display: table-cell;
+			width: 20%;
+		}
+
+		&--lg {
+			display: table-cell;
+			width: 35%;
+		}
+	}
+}
+
+/*------------------------------------*\
+	#GLOBAL STRUCTURE
+\*------------------------------------*/
+.o-global-structure {
+	position: relative;
+	@extend .u-clearfix;
+
+	&__cell-a {
+		display: none;
+	}
+
+	&__cell-b {
+
+	}
+
+	@include MQ(M) {
+		&__cell-a {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 200px;
+			display: block;
+			overflow: hidden;
+			overflow-y: auto;
+		}
+
+		&__cell-b {
+			margin-left: 200px;
+		}
+	}
+
+	@include MQ(L) {
+		&__cell-a {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 250px;
+			display: block;
+			overflow: hidden;
+			overflow-y: auto;
+		}
+
+		&__cell-b {
+			margin-left: 250px;
+		}
+	}
+}
+/*------------------------------------*\
+	#TEXT BLOCK
+\*------------------------------------*/
+.o-text-block {
+
+  &__item {
+	display: block;
+  }
+}
+
+/*------------------------------------*\
+	#TEXT COLUMNS
+\*------------------------------------*/
+.o-columns--2 {
+	column-count: 2;
+}
+/*------------------------------------*\
+	#SECONDARY ELEMENT
+\*------------------------------------*/
+.o-has-secondary {
+
+	&__secondary {
+		//padding-top: $spacing-xs;
+	}
+
+	@include MQ(S){
+		display: table;
+		width: 100%;
+
+		&__primary {
+			display: table-cell;
+		}
+
+		&__secondary {
+			padding-top: 0;
+			display: table-cell;
+			width: 30%;
+			text-align: right;
+		}
+	}
+}
+
+/*------------------------------------*\
+	#GRID OBJECT
+\*------------------------------------*/
+.o-grid {
+  display: flex;
+  -js-display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.o-grid-cell {
+  flex: 1;
+}
+
+.o-grid--flexCells > .o-grid-cell {
+  display: flex;
+  -js-display: flex;
+}
+
+.o-grid--top {
+  align-items: flex-start;
+}
+
+.o-grid--bottom {
+  align-items: flex-end;
+}
+
+.o-grid--center {
+  align-items: center;
+}
+
+.o-grid--justify-center {
+  justify-content: center;
+}
+
+.o-grid-cell--top {
+  align-self: flex-start;
+}
+
+.o-grid-cell--bottom {
+  align-self: flex-end;
+}
+
+.o-grid-cell--center {
+  align-self: center;
+}
+
+.o-grid-cell--autoSize {
+  flex: none;
+}
+
+.o-grid--fit > .o-grid-cell {
+  flex: 1;
+}
+
+.o-grid--full > .o-grid-cell {
+  flex: 0 0 100%;
+}
+
+.o-grid--1of2 > .o-grid-cell {
+  flex: 0 0 50%;
+}
+
+.o-grid--1of3 > .o-grid-cell {
+  flex: 0 0 33.3333%;
+}
+
+.o-grid--1of4 > .o-grid-cell {
+  flex: 0 0 25%;
+}
+
+@media only screen and (min-width: $bp-small) {
+  .small-grid--fit > .o-grid-cell {
+	flex: 1;
+  }
+  .small-grid--full > .o-grid-cell {
+	flex: 0 0 100%;
+	max-width: 100%;
+  }
+  .small-grid--1of2 > .o-grid-cell {
+	flex: 0 0 50%;
+	max-width: 50%;
+  }
+  .small-grid--1of3 > .o-grid-cell {
+	flex: 0 0 33.3333%;
+	max-width: 33.3333%;
+  }
+  .small-grid--1of4 > .o-grid-cell {
+	flex: 0 0 25%;
+	max-width: 25%;
+  }
+}
+
+@media only screen and (min-width: $bp-med) {
+  .med-grid--fit > .o-grid-cell {
+	flex: 1;
+  }
+  .med-grid--full > .o-grid-cell {
+	flex: 0 0 100%;
+	max-width: 100%;
+  }
+  .med-grid--1of2 > .o-grid-cell {
+	flex: 0 0 50%;
+	max-width: 50%;
+  }
+  .med-grid--1of3 > .o-grid-cell {
+	flex: 0 0 33.3333%;
+	max-width: 33.3333%;
+  }
+  .med-grid--1of4 > .o-grid-cell {
+	flex: 0 0 20%;
+	max-width: 20%;
+  }
+}
+
+@media only screen and (min-width: $bp-large-2) {
+  .large-grid--fit > .o-grid-cell {
+	flex: 1;
+  }
+  .large-grid--full > .o-grid-cell {
+	flex: 0 0 100%;
+	max-width: 100%;
+  }
+  .large-grid--1of2 > .o-grid-cell {
+	flex: 0 0 50%;
+	max-width: 50%;
+  }
+  .large-grid--1of3 > .o-grid-cell {
+	flex: 0 0 33.3333%;
+	max-width: 33.3333%;
+  }
+  .large-grid--1of4 > .o-grid-cell {
+	flex: 0 0 25%;
+	max-width: 25%;
+  }
+}
+
+
+.o-grid--gutters {
+  margin: -1em 0 1em -1em;
+}
+.o-grid--gutters > .o-grid-cell {
+  padding: 1em 0 0 1em;
+}
+
+.o-grid--guttersLg {
+  margin: -1.5em 0 1.5em -1.5em;
+}
+.o-grid--guttersLg > .o-grid-cell {
+  padding: 1.5em 0 0 1.5em;
+}
+
+.o-grid--guttersXl {
+  margin: -2em 0 2em -2em;
+}
+.o-grid--guttersXl > .o-grid-cell {
+  padding: 2em 0 0 2em;
+}
+
+@media only screen and (min-width: $bp-small) {
+  .small-grid--gutters {
+	margin: -1em 0 1em -1em;
+  }
+  .small-grid--gutters > .o-grid-cell {
+	padding: 1em 0 0 1em;
+  }
+  .small-grid--guttersLg {
+	margin: -1.5em 0 1.5em -1.5em;
+  }
+  .small-grid--guttersLg > .o-grid-cell {
+	padding: 1.5em 0 0 1.5em;
+  }
+  .small-grid--guttersXl {
+	margin: -2em 0 2em -2em;
+  }
+  .small-grid--guttersXl > .o-grid-cell {
+	padding: 2em 0 0 2em;
+  }
+}
+
+@media only screen and (min-width: $bp-med) {
+  .med-grid--gutters {
+	margin: -1em 0 1em -1em;
+  }
+  .med-grid--gutters > .o-grid-cell {
+	padding: 1em 0 0 1em;
+  }
+  .med-grid--guttersLg {
+	margin: -1.5em 0 1.5em -1.5em;
+  }
+  .med-grid--guttersLg > .o-grid-cell {
+	padding: 1.5em 0 0 1.5em;
+  }
+  .med-grid--guttersXl {
+	margin: -2em 0 2em -2em;
+  }
+  .med-grid--guttersXl > .o-grid-cell {
+	padding: 2em 0 0 2em;
+  }
+}
+
+@media only screen and (min-width: $bp-large-2) {
+  .large-grid--gutters {
+	margin: -1em 0 1em -1em;
+  }
+  .large-grid--gutters > .o-grid-cell {
+	padding: 1em 0 0 1em;
+  }
+  .large-grid--guttersLg {
+	margin: -1.5em 0 1.5em -1.5em;
+  }
+  .large-grid--guttersLg > .o-grid-cell {
+	padding: 1.5em 0 0 1.5em;
+  }
+  .large-grid--guttersXl {
+	margin: -2em 0 2em -2em;
+  }
+  .large-grid--guttersXl > .o-grid-cell {
+	padding: 2em 0 0 2em;
+  }
+}
+
+
+
+/*------------------------------------*\
+	#GRID OBJECT - FLOAT-BASED
+\*------------------------------------*/
+.o-grid-float {
+    @extend .u-clearfix;
+    display: block;
+    width: 100%;
+	//height: 0;
+}
+
+.o-grid-float {
+
+    @media screen and (max-width: $bp-small-2) {
+        &__cell {
+            float: none;
+            width: 100%;
+            display: block;
+
+            & + .o-grid-float__cell {
+
+                .card {
+                    transform: translateY(-1px);
+                }
+            }
+        }
+
+		.o-grid-float--half &__cell {
+			width: 50%;
+			float: left;
+		}
+    }
+
+    @media screen and (min-width: $bp-small-2) {
+        &__cell {
+            float:left;
+        }
+
+        .o-grid-float__cell:only-child {
+            width: 100%;
+        }
+
+        .o-grid-float__cell:nth-last-child(2):first-child,
+        .o-grid-float__cell:nth-last-child(2):first-child ~ .o-grid-float__cell {
+            width: 50%;
+        }
+        .o-grid-float__cell:nth-last-child(3):first-child,
+        .o-grid-float__cell:nth-last-child(3):first-child ~ .o-grid-float__cell {
+            width: 33.33%;
+        }
+        .o-grid-float__cell:nth-last-child(4):first-child,
+        .o-grid-float__cell:nth-last-child(4):first-child ~ .o-grid-float__cell {
+            width: 25%;
+        }
+        .o-grid-float__cell:nth-last-child(5):first-child,
+        .o-grid-float__cell:nth-last-child(5):first-child ~ .o-grid-float__cell {
+            width: 20%;
+        }
+
+        .o-grid-float__cell:only-child {
+            width: 100%;
+        }
+    }
+
+    &--persist {
+
+        .o-grid-float__cell {
+            float:left;
+        }
+
+        .o-grid-float__cell:nth-last-child(2):first-child,
+        .o-grid-float__cell:nth-last-child(2):first-child ~ .o-grid-float__cell {
+            width: 50%;
+        }
+        .o-grid-float__cell:nth-last-child(3):first-child,
+        .o-grid-float__cell:nth-last-child(3):first-child ~ .o-grid-float__cell {
+            width: 33.33%;
+        }
+        .o-grid-float__cell:nth-last-child(4):first-child,
+        .o-grid-float__cell:nth-last-child(4):first-child ~ .o-grid-float__cell {
+            width: 25%;
+        }
+        .o-grid-float__cell:nth-last-child(5):first-child,
+        .o-grid-float__cell:nth-last-child(5):first-child ~ .o-grid-float__cell {
+            width: 20%;
+        }
+    }
+
+    &--mb {
+        @extend .u-clearfix;
+        display: block;
+        width: 100%;
+
+        .o-grid-float__cell {
+
+            &.-lg {
+                float:left;
+                width: 70%;
+            }
+
+            &.-sm {
+                float:left;
+                width: 30%;
+            }
+
+            &:last-of-type {
+                padding-left: $base-spacing;
+            }
+        }
+    }
+
+    &--gutters {
+
+        @media screen and (min-width: $bp-small-2) {
+            .o-grid-float__cell {
+                padding-right: $base-spacing * 4;
+
+                &:last-of-type {
+                    padding-right: 0;
+                }
+            }
+        }
+
+		&-sm {
+			&.o-grid-float--half .o-grid-float__cell {
+				//padding-right: $base-spacing;
+
+				&:last-of-type {
+					padding-right: 0;
+				}
+			}
+			@media screen and (min-width: $bp-small-2) {
+	            .o-grid-float__cell {
+	                padding-right: $base-spacing;
+
+	                &:last-of-type {
+	                    padding-right: 0;
+	                }
+	            }
+	        }
+		}
+
+        &.-persist {
+            .o-grid-float__cell {
+                padding-right: $base-spacing * 4;
+
+                &:last-of-type {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    &__cell {
+
+        &__title-grid {
+            padding-top: $base-spacing;
+            padding-bottom: $base-spacing;
+
+            @media screen and (max-width: $bp-small-2) {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    &.-border {
+        .o-grid-float__cell {
+
+            @media screen and (min-width: $bp-small-2) {
+                border-left: 1px $color-gray-30 solid;
+                border-right: 1px $color-gray-30 solid;
+                margin-right: -1px;
+
+                &:first-child {
+                    border-left: none;
+                }
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
+
+            @media screen and (max-width: $bp-small-2) {
+
+                &__wrap {
+                    border-top: 1px $color-gray-30 solid;
+                }
+
+                &:first-child {
+                    .o-grid-float__cell__wrap {
+                        border-top: none;
+                    }
+                }
+            }
+        }
+
+        &--d {
+            .o-grid-float__cell {
+
+                @media screen and (min-width: $bp-small-2) {
+                    border-left: 1px $color-gray-50 solid;
+
+                    &:first-child {
+                        border-left: none;
+                    }
+                }
+            }
+        }
+    }
+
+    &.-alt {
+        @media screen and (max-width: $max-width) {
+            .o-grid-float__cell {
+                float: none;
+                width: 100%;
+                display: block;
+
+                & + .o-grid-float__cell {
+
+                    .card {
+                        transform: translateY(-1px);
+                    }
+                }
+            }
+            .o-grid-float__cell:nth-last-child(2):first-child,
+            .o-grid-float__cell:nth-last-child(2):first-child ~ .o-grid-float__cell {
+                width: 100%;
+            }
+            .o-grid-float__cell:nth-last-child(3):first-child,
+            .o-grid-float__cell:nth-last-child(3):first-child ~ .o-grid-float__cell {
+                width: 100%;
+            }
+            .o-grid-float__cell:nth-last-child(4):first-child,
+            .o-grid-float__cell:nth-last-child(4):first-child ~ .o-grid-float__cell {
+                width: 100%;
+            }
+            .o-grid-float__cell:nth-last-child(5):first-child,
+            .o-grid-float__cell:nth-last-child(5):first-child ~ .o-grid-float__cell {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: $max-width) {
+            .o-grid-float__cell {
+                float:left;
+            }
+
+            .o-grid-float__cell:nth-last-child(2):first-child,
+            .o-grid-float__cell:nth-last-child(2):first-child ~ .o-grid-float__cell {
+                width: 50%;
+            }
+            .o-grid-float__cell:nth-last-child(3):first-child,
+            .o-grid-float__cell:nth-last-child(3):first-child ~ .o-grid-float__cell {
+                width: 33.33%;
+            }
+            .o-grid-float__cell:nth-last-child(4):first-child,
+            .o-grid-float__cell:nth-last-child(4):first-child ~ .o-grid-float__cell {
+                width: 25%;
+            }
+            .o-grid-float__cell:nth-last-child(5):first-child,
+            .o-grid-float__cell:nth-last-child(5):first-child ~ .o-grid-float__cell {
+                width: 20%;
+            }
+        }
+    }
+    &.-gutters.-alt {
+
+        @media screen and (min-width: $max-width) {
+            .o-grid-float__cell {
+                padding-right: $base-spacing;
+
+                &:last-of-type {
+                    padding-right: 0;
+                }
+            }
+        }
+
+        @media screen and (max-width: $max-width) {
+            .o-grid-float__cell {
+                padding-right: 0;
+
+                &:last-of-type {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.o-grid-float-50 {
+    display: block;
+
+    &__cell {
+        display: block;
+        width: 100%;
+    }
+
+    @media screen and (min-width: 900px) {
+        display: table;
+        width: 100%;
+
+        &__cell {
+            display: table-cell;
+            width: 50%;
+
+            &:first-child {
+                padding-right: $base-spacing;
+            }
+
+            & + & {
+                padding-left: $base-spacing;
+            }
+        }
+    }
+}
+
+.o-grid-float-auto {
+    display: table;
+    width: 100%;
+
+    &__item {
+        display: table-cell;
+    }
+
+    &--bp-med {
+        display: table;
+        width: 100%;
+
+        &__item {
+            display: table-cell;
+        }
+
+        @media screen and (max-width: $bp-med) {
+            display: block;
+
+            &__item {
+                display: block;
+            }
+        }
+    }
+
+    &--bp-2 {
+        display: table;
+        width: 100%;
+
+        &__item {
+            display: table-cell;
+        }
+
+        @media screen and (max-width: $bp-small-2) {
+            display: block;
+
+            &__item {
+                display: block;
+            }
+        }
+    }
+}

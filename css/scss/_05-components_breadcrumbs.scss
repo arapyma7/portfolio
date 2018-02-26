@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    #BREADCRUMBS
+\*------------------------------------*/
+
+.c-breadcrumbs {
+
+    &__item {
+        display: inline-block;
+
+        &:not(:last-of-type) {
+
+            &:after {
+                content: "›";
+                padding-left: $base-spacing;
+                padding-right: $base-spacing;
+                color: $color-primary;
+                font-weight: 600;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

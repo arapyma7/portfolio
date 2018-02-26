@@ -1,0 +1,300 @@
+
+
+// TOOLS: Default mixin and functions
+
+/*------------------------------------*\
+		#MIXINS
+\*------------------------------------*/
+// Media Query
+
+@mixin MQ($canvas) {
+	@if $canvas == S {
+	 @media only screen and (min-width: $bp-small-2) { @content; }
+	}
+	@else if $canvas == M {
+	 @media only screen and (min-width: $bp-med) { @content; }
+	}
+	@else if $canvas == L {
+	 @media only screen and (min-width: $bp-large-2) { @content; }
+	}
+	@else if $canvas == XL {
+	 @media only screen and (min-width: $bp-xxxl) { @content; }
+	}
+	@else if $canvas == maxL {
+	 @media only screen and (max-width: $bp-large-2) { @content; }
+	}
+}
+
+@mixin column($percentage, $float-direction:left) {
+	width: 100% * $percentage;
+	float: $float-direction;
+}
+
+/** CSS Transition Timing
+ *  Usage: @include transitionTiming(none);
+ */
+@mixin transitionTiming($duration, $timing-function, $delay, $property) {
+	transition-duration: $duration;
+	transition-timing-function: $timing-function;
+	transition-delay: $delay;
+	transition-property: $property;
+}
+
+/** CSS Appearance
+ *  Usage: @include appearance(none);
+ */
+@mixin appearance($appearance) {
+	// appearance: $appearance;
+	// -moz-appearance: $appearance;
+	// -ms-appearance: $appearance;
+	// -webkit-appearance: $appearance;
+}
+
+/** CSS Transition
+ *  Usage: @include transition(width,0.3s,ease-out);
+ */
+@mixin transition($transition-property, $transition-time, $method) {
+	transition: $transition-property $transition-time $method;
+}
+
+
+/** Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
+ *  Usage: @include font-size(1, large);
+ */
+@mixin font-size( $decimal-size, $keyword: null ) {
+	@if $keyword{ font-size: $keyword; }
+	@else { font-size: $decimal-size * $base-font-multiplier * 16px;}
+	font-size: $decimal-size * 1rem;
+}
+
+//BORDER BOTTOM
+
+@mixin borderBottom() {
+	border-bottom: 1px solid $color-gray-border;
+}
+
+
+/*------------------------------------*\
+		#PORTED FROM BURBON
+\*------------------------------------*/
+@mixin clearfix {
+	&::after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}
+@mixin placeholder {
+	//@include _bourbon-deprecate-for-prefixing("placeholder");
+
+	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+	@each $placeholder in $placeholders {
+		&:#{$placeholder}-placeholder {
+			@content;
+		}
+	}
+}
+
+/*------------------------------------*\
+		#CONTAINERS
+\*------------------------------------*/
+@mixin container-fullwidth {
+	max-width: $max-width;
+	width: 100%;
+	padding: 0 $spacing-md;
+	margin: 0 auto;
+}
+@mixin container-sm {
+	max-width: $max-width * .55;
+	width: 100%;
+	padding: 0 $spacing-md;
+	margin: 0 auto;
+}
+
+/*------------------------------------*\
+		#FLEXBOX w/ BROWSER FALLBACKS
+\*------------------------------------*/
+@mixin flexbox {
+	display:-webkit-box; // old
+	display:-moz-box; // old
+	display:-ms-flexbox; // ie
+	display:-webkit-flex; // new
+	display:flex; // new
+}
+
+@mixin flex-direction($direction) {
+	@if $direction == column {
+		-webkit-flex-direction:vertical;
+		-moz-flex-direction:vertical;
+		-ms-flex-direction:column;
+		-webkit-flex-direction:column;
+		flex-direction:column;
+	}
+	@else {
+		-webkit-flex-direction:horizontal;
+		-moz-flex-direction:horizontal;
+		-ms-flex-direction:row;
+		-webkit-flex-direction:row;
+		flex-direction:row;
+	}
+}
+
+@mixin flex-wrap($wrap) {
+	@if $wrap == wrap {
+		flex-wrap: wrap;
+	}
+	@else {
+		flex-wrap: nowrap;
+	}
+}
+
+
+
+@mixin justify-content($value) {
+
+	@if $value == "start" {
+		justify-content: flex-start;
+	} @else if $value == "end" {
+			justify-content: flex-end;
+	} @else if $value == "between" {
+			justify-content: space-between;
+	} @else if $value == "around" {
+			justify-content: space-around;
+	} @else if $value == "center" {
+			justify-content: center;
+	}
+}
+
+@mixin align-items($value) {
+
+	@if $value == "start" {
+		align-items: flex-start;
+	} @else if $value == "end" {
+		align-items: flex-end;
+	} @else if $value == "center" {
+		align-items: center;
+	} @else if $value == "baseline" {
+		align-items: baseline;
+	} @else if $value == "stretch" {
+		align-items: stretch;
+	}
+}
+
+/*------------------------------------*\
+		#(X,Y) Absolute Centering
+\*------------------------------------*/
+@mixin absolute-centering {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin absolute-centering-v {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin fixed-centering {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin arrow-after {
+	content: "";
+	position: absolute;
+	margin-left: 1rem;
+	top: 10px;
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-left: 5px solid $color-brand-blue;
+	border-bottom: 5px solid transparent;
+}
+
+@mixin pipe-after {
+	content: "|";
+	position: absolute;
+	color: $color-gray-border;
+	right: -2px;
+	top: -2px;
+	font-size: 10px;
+}
+
+
+/*------------------------------------*\
+		#LIST CLEAR
+\*------------------------------------*/
+@mixin clear-list-styling {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	li {
+		margin: 0;
+	}
+}
+
+/*------------------------------------*\
+		#ROUND BUTTONS
+\*------------------------------------*/
+@mixin round-button($color-round-button, $color-round-button-hover, $color-round-button-border-hover) {
+	@extend .u-position--r;
+	width: $round-button-size;
+	height: $round-button-size;
+	font-size: $font-size-lg;
+	text-align: center;
+	transition: color $transition-speed ease-out, transform $transition-speed ease-out;
+	color: $color-round-button;
+	transform: translateX($round-button-border-size) translateY($round-button-border-size);
+
+	.c-anchor--icon-btn {
+		font-size: $font-size-lg;
+	}
+
+	img {
+		@extend .u-border-radius--round;
+		@include absolute-centering;
+	}
+
+	svg {
+		@include absolute-centering;
+		width: $spacing-lg;
+	}
+
+	[class^="c-icon--"], [class*=" c-icon--"] {
+		@include absolute-centering;
+		font-size: $font-size-md-2;
+	}
+
+	&:before {
+		@extend .u-position--a;
+		top:-$round-button-border-size;
+		left: -$round-button-border-size;
+		content: '';
+		width: $round-button-size;
+		height: $round-button-size;
+		border-radius: 100%;
+		border-color: $color-round-button;
+		border: $round-button-border-size solid;
+		transform: scale(1);
+		transition: opacity $transition-speed ease-out, border $transition-speed ease-out, transform $transition-speed ease-out;
+	}
+
+	&:hover, &:focus {
+		outline: none;
+		color: $color-round-button-hover;
+		transform: scale(1.1) rotate(0deg) translateX($round-button-border-size) translateY($round-button-border-size) skewX(0deg) skewY(0deg);
+
+		&:before {
+			transform: scale(1.5) rotate(0deg) translateX(-$round-button-border-size) translateY(-$round-button-border-size) skewX(0deg) skewY(0deg);
+			border: $round-button-border-size-hover solid $color-round-button-border-hover;
+		}
+	}
+
+	&:active {
+		transform: scale(.9) rotate(0deg) translateX($round-button-border-size) translateY($round-button-border-size) skewX(0deg) skewY(0deg);
+	}
+}

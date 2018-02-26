@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    #HTML CONTENT - Could be from external sources like a CMS
+\*------------------------------------*/
+.c-html-content {
+
+	p, ol, ul, p + p {
+		padding-top: 0;
+		padding-bottom: 1rem;
+	}
+
+	a {
+		@extend .c-anchor--primary;
+		@extend .u-clickable-area
+	}
+
+	ol {
+		li {
+    		list-style-type: decimal;
+			list-style-position: inside;
+		}
+	}
+
+	ul {
+		li {
+    		list-style-type: disc;
+			list-style-position: inside;
+		}
+	}
+}

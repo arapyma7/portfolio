@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    #CARDS
+\*------------------------------------*/
+
+.c-card {
+    background-color: white;
+    box-shadow: 0 $base-spacing / 2 $base-spacing * 2 0 rgba(0, 0, 0, .10);
+    border: 1px $color-border solid;
+    //@extend .u-border;
+    @extend .u-border-radius;
+
+    &--primary {
+        border-top: $base-spacing / 2 $color-yellow solid;
+    }
+}

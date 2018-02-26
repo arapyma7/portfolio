@@ -1,0 +1,63 @@
+/*------------------------------------*\
+    #HEADER
+\*------------------------------------*/
+$logo-width: 175px;
+$logo-height: 63.38px;
+
+.c-header {
+    background-color: #fff;
+    box-shadow: 0 0 $base-spacing 0 rgba(0, 0, 0, .12);
+    border-bottom: 1px $color-border solid;
+
+    .u-container-global {
+        position: relative;
+    }
+
+    &__logo-img {
+        width: $logo-width * .65;
+        height: $logo-height * .65;
+
+        @include MQ(L){
+            width: $logo-width;
+            height: $logo-height;
+        }
+    }
+
+    &__page-title {
+    }
+
+    &__section {
+        padding-left: $base-spacing * 4;
+        display: inline-block;
+
+        &:not(:last-of-type) {
+            padding-right: $base-spacing * 4;
+        }
+
+        & + & {
+            border-left: 2px $color-gray-50 solid;
+        }
+    }
+}
+
+.c-logo-lockup {
+    display: block;
+
+    &__image, &__text {
+    }
+
+    &__image {
+        transition: opacity 150ms ease-out;
+        width: $logo-width * .65;
+        height: $logo-height * .65;
+
+        @include MQ(L){
+            width: $logo-width;
+            height: $logo-height;
+        }
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+}

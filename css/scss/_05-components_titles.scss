@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    #TITLES
+\*------------------------------------*/
+%title-setup {
+	@extend .u-font-weight-black;
+	-webkit-font-smoothing: antialiased;
+ 	-moz-osx-font-smoothing: grayscale;
+	padding-bottom: 0;
+	line-height: 1;
+	//text-transform: uppercase;
+	//font-family: $font-2;
+}
+
+.c-title {
+	@extend %title-setup;
+
+	&--subtitle {
+		//@extend %title-setup;
+	}
+
+	[class*="c-icon"] {
+		transform: translateY(.1rem);
+	}
+}
+
+.c-title--styled {
+	@extend %title-setup;
+	@extend .u-font-uppercase;
+}
+
+.c-row-title {
+	@extend %title-setup;
+	@extend .u-i-b;
+	@extend .u-padding-bottom-sm;
+	border-bottom: 3px $color-primary solid;
+}

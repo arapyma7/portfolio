@@ -1,0 +1,138 @@
+/*------------------------------------*\
+    #CHECKBOXES
+\*------------------------------------*/
+
+@keyframes checkbox-disappear {
+    0% {
+        transform: translateY(-50%) translateX(-50%) scale(1);
+    }
+    25% {
+        transform: translateY(-50%) translateX(-50%) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-50%) scale(0);
+    }
+}
+
+@keyframes popin {
+    0% {
+        transform: translateY(-50%) scale(.7);
+    }
+    75% {
+        transform: translateY(-50%) scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.c-checkbox {
+    position: relative;
+    cursor: pointer;
+    transition: all 150ms ease-out;
+
+    & * {
+        pointer-events: none;
+    }
+
+    &:active {
+        transform: scale(.975);
+    }
+
+    &__indicator {
+        position: absolute;
+        width: $base-spacing * 2;
+        height: $base-spacing * 2;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%) scale(1);
+        transition: all 150ms ease-out;
+        border-radius: 100%;
+        box-shadow: inset 0 0 0 3px darken($color-gray-10, 10%);
+    }
+
+    &:hover {
+
+        .c-checkbox__indicator {
+            transform: translateY(-50%) scale(1.2);
+        }
+    }
+
+    &[data-state="unchecked"] {
+        border: 1px $color-border solid;
+        background-color: $color-gray-02;
+
+        .c-checkbox__indicator {
+
+            &:before {
+                content: "";
+                background-color: darken($color-gray-10, 0%);
+                border-radius: 100%;
+                height: $base-spacing;
+                width: $base-spacing;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                opacity: 0;
+                transform: translateX(-50%) translateY(-50%) scale(0);
+                transition: transform 150ms ease-out, opacity 150ms ease-out;
+            }
+        }
+
+        &:hover {
+            border: 1px darken($color-border,10%) solid;
+            background-color: #fff;
+            //box-shadow: inset 0 4px 0 $color-gray-10;
+
+            .c-checkbox__indicator {
+                box-shadow: inset 0 0 0 2px darken($color-gray-10, 10%);
+                //transform: translateY(-50%) translateX(-50%) scale(1.2);
+
+                &:before {
+                    transform: translateX(-50%) translateY(-50%) scale(1);
+                    opacity: 1;
+                }
+            }
+        }
+
+        &:active {
+            box-shadow: inset 0 2px 0 0 darken($color-gray-10, 5%);
+
+            .c-checkbox__indicator {
+                transform: translateY(-50%) scale(0);
+                opacity: 0;
+            }
+        }
+    }
+
+    &[data-state="checked"] {
+        background-color: #fff;
+        border: 1px darken($color-border,20%) solid;
+        box-shadow: 0 1px 2px rgba(0,0,0,.15);
+
+        .c-checkbox__indicator {
+            box-shadow: none;
+            background-color: $color-primary;
+
+            animation-name: popin;
+            animation-duration: 200ms;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        &:hover {
+            border: 1px darken($color-border,30%) solid;
+        }
+    }
+}

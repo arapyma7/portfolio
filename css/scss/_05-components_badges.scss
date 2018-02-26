@@ -1,0 +1,41 @@
+/*------------------------------------*\
+    #BADGES
+\*------------------------------------*/
+
+.c-badge {
+	display: inline-block;
+	background-color: $color-gray-10;
+	color: $color-gray-75;
+	border-radius: $border-radius;
+	transition: all 150ms ease-out;
+	line-height: 1;
+	padding: $base-spacing;
+	margin-bottom: $base-spacing;
+	margin-right: $base-spacing;
+	outline: none;
+
+	&__label {
+	}
+
+	&__count {
+		padding-left: $base-spacing / 2;
+	}
+
+	&:hover, &:focus {
+		background-color: darken($color-gray-03, 10%);
+	}
+
+	&:active {
+		transform: $scale-down-09;
+	}
+
+	&[data-state="active"] {
+		background-color: $color-primary;
+		color: #fff;
+		//font-weight: $font-semi-bold;
+
+		&:hover, &:focus {
+			background-color: darken($color-primary, 10%);
+		}
+	}
+}

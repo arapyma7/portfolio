@@ -1,0 +1,128 @@
+/*------------------------------------*\
+    #DROPDOWNS
+\*------------------------------------*/
+
+.c-dropdown {
+    position: relative;
+
+    .js-dropdown-trigger {
+        padding-right: $base-spacing * 2;
+        display: inline-block;
+
+        .c-icon-chevron-down, .c-icon-chevron-up {
+            position: absolute;
+            right: 0;
+            left: auto;
+            width: $base-spacing * 1.5;
+
+            @include absolute-centering-v;
+        }
+    }
+
+    &.is-visible {
+
+        .c-dropdown__list {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+
+        .c-icon-chevron-up {
+            display: block;
+        }
+
+        .c-icon-chevron-down {
+            display: none;
+        }
+    }
+
+    &:not(.is-visible) {
+
+        .c-dropdown__list {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-$base-spacing * 2) scale(.8);
+        }
+
+        .c-icon-chevron-up {
+            display: none;
+        }
+
+        .c-icon-chevron-down {
+            display: block;
+        }
+    }
+
+    &__list {
+        background-color: #fff;
+        box-shadow: 0 2px $base-spacing $color-black-25;
+        border-radius: $border-radius;
+        overflow: hidden;
+        position: absolute;
+        z-index: 2;
+        text-align: center;
+        transition: all $transition-speed-half ease-out;
+
+        &--left {
+            left: 0;
+            right: auto;
+        }
+
+        &--right {
+            right: 0;
+            left: auto;
+        }
+
+        &--full {
+            right: 0;
+            left: 0;
+            text-align: left;
+
+            .c-dropdown__list__item__anchor {
+                width: 100%;
+            }
+        }
+
+        &.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+
+            .c-icon-chevron-up {
+                display: block;
+            }
+
+            .c-icon-chevron-down {
+                display: none;
+            }
+        }
+
+        &:not(.is-visible) {
+
+            .c-icon-chevron-up {
+                display: none;
+            }
+
+            .c-icon-chevron-down {
+                display: block;
+            }
+        }
+
+        &__item {
+
+            &__anchor {
+                display: block;
+                transition: all $transition-speed-half ease-out;
+                width: $base-spacing * 30;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                &:active {
+        			transform: $scale-down-09;
+                }
+            }
+        }
+    }
+}

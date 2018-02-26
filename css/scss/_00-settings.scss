@@ -1,0 +1,152 @@
+// SETTINGS: Global variables, config switches
+$full-width: 1200px;
+$max-width: $full-width;
+$modal-width: 960px;
+
+/*------------------------------------*\
+    #TYPOGRAPHY
+\*------------------------------------*/
+$font: "Helevetica Neau", "Arial", sans-serif;
+//$font-2: 'FrutigerLTStd-ExtraBlackCn','Open Sans Condensed', sans-serif;
+//$font-3: 'FrutigerLTStd-LightCn','Open Sans Condensed', sans-serif;
+$font-2: 'Open Sans Condensed', sans-serif;
+$font-3: 'Open Sans Condensed', sans-serif;
+
+$font-thin: 100;
+$font-regular: 400;
+$font-semi-bold: 600;
+$font-bold: 700;
+$font-black: 900;
+
+$font-size-xs:  0.719rem;          // 11px
+$font-size-xs-2:  0.750rem;         // 12px
+$font-size-sm: 0.875rem;           // 14px
+$font-size-sm-2: 1rem;             // 16px
+$font-size-md: 1.25rem;            // 20px
+$font-size-md-2: 1.6875rem;        // 250px
+$font-size-lg: 3rem;               // 48px
+$font-size-xl: 6rem;               // 48px
+
+$base-line-height: 1.2rem;
+
+/*------------------------------------*\
+    #BREAKPOINTS
+\*------------------------------------*/
+$bp-small : 27em;                 // 432px
+$bp-small-2 : 29.75em;            // 476px
+$bp-small-3 : 39.8em;             // 636px
+$bp-med : 46.8em;                 // 748px
+$bp-med-2 : 48em;                 // 768px
+$bp-large : 50em;                 // 800px
+$bp-large-2 : 64.06em;           // 1025px
+$bp-xl : 73em;                    // 1168px
+$bp-xxl : 89em;                   // 1424px
+$bp-xxxl : 90em;                  // 1440px
+
+/*------------------------------------*\
+    #SPACING
+\*------------------------------------*/
+$base-spacing: .5rem;
+
+$spacing-xs: $base-spacing / 2;   // 4px
+$spacing-sm: $base-spacing;       // 8px
+$spacing-md: $base-spacing * 2;   // 16px
+$spacing-lg: $base-spacing * 3;   // 24px
+$spacing-xl: $base-spacing * 4;   // 32px
+$spacing-xxl: $base-spacing * 5;   // 40px
+$spacing-xxxl: $base-spacing * 6;   // 48px
+
+/*------------------------------------*\
+    #FORMS
+\*------------------------------------*/
+$input-height: $spacing-xxxl;           // 48px
+
+
+
+/*------------------------------------*\
+    #COLORS
+\*------------------------------------*/
+
+$color-white: #fff;
+$color-white-75: rgba(255,255,255,.75);
+$color-white-50: rgba(255,255,255,.5);
+$color-white-25: rgba(255,255,255,.25);
+
+$color-gray-border: #bebfbf;
+$color-gray-02: #F9F9F9;
+$color-gray-03: #F1F1F1;
+$color-gray-10: #e6e6e6;
+$color-gray-30: #999;
+$color-gray-50: #666;
+$color-gray-75: #444;
+$color-gray-80: #333;
+$color-gray: #25282a;
+
+$color-black: #000;
+$color-black-75: rgba(0,0,0,.75);
+$color-black-50: rgba(0,0,0,.5);
+$color-black-25: rgba(0,0,0,.25);
+
+$color-blue: #00a4e4;
+$color-blue-dark: #004c7b;
+$color-blue-light: #7ed3ef;
+
+$color-green: #76c43a;
+$color-green-light: #bae19c;
+
+$color-yellow: #f7b820;
+$color-yellow-75: #ffd972;
+$color-highlight: #F1FBFF;
+
+$color-red: #AD0F0F;
+$color-red-light: #FFD2D2;
+
+$color-orange: #ed570d;
+
+$color-border: $color-gray-10;
+$color-header-input-border: $color-black-50;
+
+$color-primary: $color-blue;
+$color-secondary: $color-blue-dark;
+$color-info: $color-blue;
+$color-info-light: $color-blue-light;
+$color-info-dark: $color-blue-dark;
+$color-success: $color-green;
+$color-success-light: $color-green-light;
+$color-danger: $color-red;
+$color-danger-light: $color-red-light;
+$color-warning: $color-yellow;
+$color-neutral: $color-gray;
+$color-tertiary: $color-gray-50;
+
+/*------------------------------------*\
+    #BORDER RADIUS
+\*------------------------------------*/
+$border-radius:  0.1875rem;        // 3px
+
+/*------------------------------------*\
+    #TRANSFORMS
+\*------------------------------------*/
+$scale-down-09: scale(.95);
+
+/*------------------------------------*\
+    #ANNIMATIONS & TRANSISTIONS
+\*------------------------------------*/
+$transition-speed: 300ms;
+$transition-speed-half: $transition-speed / 2;
+$transition-speed-2x: $transition-speed * 1.5;
+
+
+/*------------------------------------*\
+    #ICON BUTTONS
+\*------------------------------------*/
+$round-button-border-size: $base-spacing / 4;
+$round-button-border-size-hover: $round-button-border-size * 2;
+$round-button-size: $spacing-xxxl - $round-button-border-size;
+
+/*------------------------------------*\
+    #BODY BACKGROUND IMAGES
+\*------------------------------------*/
+//$bg-img: body-bg.jpg;
+$bg-img-color: $color-black;
+$bg-body-top: $base-spacing * 24;

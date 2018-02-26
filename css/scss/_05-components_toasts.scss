@@ -1,0 +1,164 @@
+/*------------------------------------*\
+    #TOASTS
+\*------------------------------------*/
+@keyframes fallIn {
+    0% {
+		opacity: 0;
+	    transform: translateX(-$base-spacing * 3) scale(1.2);
+    }
+    3.5% {
+        opacity: 1;
+        transform: translateX(0) scale(.975);
+    }
+    5% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+	95% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+    96.5% {
+        transform: translateX(0) scale(.975);
+    }
+    100% {
+		transform: translateX(-$base-spacing * 3) scale(1.2);
+		opacity: 0;
+    }
+}
+
+@keyframes pop {
+    0% {
+		opacity: 0;
+	    transform: scale(.85) translateY(-50%);
+    }
+    3.5% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-50%);
+    }
+    5% {
+        opacity: 1;
+        transform: scale(1) translateY(-50%);
+    }
+	95% {
+        transform: scale(1) translateY(-50%);
+    }
+    96.5% {
+		transform: scale(1.05) translateY(-50%);
+        opacity: 1;
+    }
+    100% {
+		transform: scale(.85) translateY(-50%);
+		opacity: 0;
+    }
+}
+
+@keyframes pop {
+    0% {
+		opacity: 0;
+	    transform: scale(.85) translateY(-50%);
+    }
+    3.5% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-50%);
+    }
+    5% {
+        opacity: 1;
+        transform: scale(1) translateY(-50%);
+    }
+	95% {
+        transform: scale(1) translateY(-50%);
+    }
+    96.5% {
+		transform: scale(1.05) translateY(-50%);
+        opacity: 1;
+    }
+    100% {
+		transform: scale(.85) translateY(-50%);
+		opacity: 0;
+    }
+}
+
+.c-toast {
+	opacity: 0;
+    pointer-events: none;
+	position: fixed;
+	z-index: 4;
+	top: $base-spacing * 3;
+	background-color: #fff;
+	border-radius: $border-radius;
+	overflow: hidden;
+	box-shadow: 0 2px $base-spacing $color-black-25;
+
+	animation-name: fallIn;
+	animation-duration: 6s;
+	animation-timing-function: ease-out;
+	animation-delay: $transition-speed-2x;
+
+	&--success {
+		background-color: $color-green;
+		color: #fff;
+
+		.c-toast__desc {
+			padding-right: $base-spacing * 5;
+		}
+	}
+
+	&--warning {
+		background-color: $color-yellow;
+		color: $color-gray;
+	}
+
+	&--danger {
+		background-color: $color-red;
+		color: #fff;
+	}
+
+	&__icon {
+
+		&--left, &--right {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: $base-spacing * 7;
+
+			[class*="c-icon"] {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateY(-50%) translateX(-50%);
+			}
+		}
+
+		&--left {
+			left: 0;
+		}
+
+		&--right {
+			right: 0;
+		}
+	}
+
+	&__desc {
+		padding-left: $base-spacing * 5;
+	}
+
+    &--inline {
+        border-radius: $border-radius;
+        opacity:0;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+
+        animation-name: pop;
+    	animation-duration: 6s;
+    	animation-timing-function: ease-out;
+
+        .c-toast__desc {
+            padding-left: $base-spacing;
+            padding-right: $base-spacing;
+        }
+    }
+}

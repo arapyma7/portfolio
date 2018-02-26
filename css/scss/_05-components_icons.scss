@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    #ICOMOON SETUP
+\*------------------------------------*/
+
+[class^="c-icon--"], [class*=" c-icon--"] {
+  display: inline-block;
+  //width: 1rem; //for svg
+  //height: 1rem; //for svg
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  transform: translateY(.05rem);
+}
+
+.c-icon--inline {
+  position: relative;
+  top: .15rem;
+}
+
+.c-icon--lg {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.c-icon--md {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+.c-icon--sm {
+    width: .75rem;
+    height: .75rem;
+}
